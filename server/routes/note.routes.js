@@ -7,11 +7,16 @@ const router = new Router();
 router.route('/notes').post(NoteController.addNote);
 
 
+//Pobierz wszystkie karty
+router.route('/notes').get(NoteController.getNotes);
+
+
+
 //Usuwanie Karty
 router.route('/notes/:noteId').delete(NoteController.deleteNote);
 
 
-//Edeycja Karty
-router.route('/notes').put(NoteController.editNote);
+//Edycja Karty
+router.route('/notes/:noteId').put(NoteController.editNote);
 
 export default router;

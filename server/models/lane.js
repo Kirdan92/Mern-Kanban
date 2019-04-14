@@ -1,6 +1,8 @@
 import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
+import Note from '../models/note';
 mongoose.plugin(schema => { schema.options.usePushEach = true });
+
 
 const laneSchema = new Schema({
 	name: {type: 'String', required: true},
@@ -19,9 +21,10 @@ laneSchema.pre('findOne', populateNotes);
 
 function deleteAllNotes(next) {
   const lineNotes = this.notes;
-
+  console.log(lineNotes);
   lineNotes.forEach(note => {
-  	Note.findOneAndRemove({lineNotes: note._id}).exec()
+  	console.log(note);
+  	Note.findByIdAndRemove(note._id).exec()
   });
   next();	
 }

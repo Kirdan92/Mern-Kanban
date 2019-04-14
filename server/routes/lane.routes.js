@@ -15,7 +15,7 @@ router.route('/lanes/:laneId').delete(LaneController.deleteLane);
 
 
 //Edycja kolumny
-router.route('/lanes').put(LaneController.editLane);
+router.route('/lanes/:laneId').put(LaneController.editLane);
 
 
 export default router;

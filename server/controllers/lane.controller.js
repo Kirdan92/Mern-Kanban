@@ -36,15 +36,16 @@ export function getLanes(req, res) {
 
 
 export function editLane(req, res) {
-	if (!req.body.name) {
+	const { lane } = req.body;
+	if (!lane || !lane.name) {
 		return res.status(403).end();
 	}
-	Lane.findOneAndUpdate({id: req.params.laneId}, {name: req.body.name}).exec((err, newName) => {
-    if(err) {
-      res.status(500).send(err);
-    }
-    res.json(newName);
-  });
+	Lane.findOneAndUpdate({id: req.params.laneId}, {name: lane.name}, (err, result) => {
+		if (err) {
+			res.status(500).send(err);
+		}
+		res.json(result)
+	});				
 }
 
 
