@@ -19,6 +19,7 @@ export function addNote(req, res) {
   });
 
   newNote.id = uuid();
+  newNote.laneId = laneId;
   newNote.save((err, saved) => {
     if (err) {
       res.status(500).send(err);
@@ -34,45 +35,46 @@ export function addNote(req, res) {
   });
 }
 
-
-export function getNotes(req, res) {
-	Note.find().exec((err, notes) => {
-		if (err) {
-			res.status(500).send(err);
-		}
-		res.json({ notes });
-	});
-}
-
-
 export function deleteNote(req, res) {
-  Note.findOneAndRemove({ id: req.params.noteId }).exec((err, note) => {
+  const noteId = req.params.noteId;
+  Note.findOne({ id: req.params.noteId }).exec((err, note) => {
     if (err) {
       res.status(500).send(err);
     }
-    Lane.findOne({ notes: note._id })
-    .then(lane => {
-      lane.notes.remove(note._id);
-      lane.save();
-    })
-    .then(() => {
+
+    Lane.findOne({ id: note.id })
+      .then(lane => {
+        var filteredNotes = lane.notes.filter(note => note.id !== noteId);
+        lane.update({ notes: filteredNotes }), (error) => {
+          if (error) {
+            res.status(500).send(error);
+          }
+          res.status(200).end();
+        }
+      });
+
+
+    note.remove(() => {
       res.status(200).end();
     });
+
   });
 }
 
-
-
 export function editNote(req, res) {
-	const { note } = req.body;
-	if (!note || !note.task) {
-		return res.status(403).end();
-	}
-	Note.findOneAndUpdate({id: req.params.noteId}, {task: note.task}, (err, result) => {
-		if (err) {
-			res.status(500).send(err);
-		}
-		res.json(result)
-	});				
-}
+  Note.findOne({ id: req.params.noteId }).exec((err, note) => {
+    if (err) {
+      res.status(500).send(err);
+    }
+    const newTask = req.body.task;
+    note.task = newTask;
 
+    note.save((err, saveNote) => {
+      if (err) {
+        res.status(500).send(err);
+      }
+      res.json(saveNote);
+    });
+
+  });
+}

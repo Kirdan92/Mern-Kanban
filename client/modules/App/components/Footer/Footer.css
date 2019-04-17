@@ -1,17 +1,22 @@
 .footer{
+	display: none;
   text-align: center;
-  padding: 56px 0;
-  background-size: cover;
+  padding-top: 25px;
+  background-color: transparent;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .footer p{
   margin: 0 0 8px 0;
   font-size: 14px;
-  color: #FFF;
+  color: #03236d;
 }
 
 .footer a{
-  color: #FFF;
+  color: #03236d;
   text-decoration: none;
   font-weight: 700;
 }

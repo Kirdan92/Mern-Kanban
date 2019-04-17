@@ -1,0 +1,22 @@
+
+.value {
+  font-weight: 700;
+}
+
+.value:hover {
+  cursor: pointer;
+  color: #02AD32;
+}
+
+.delete {
+  padding: 6px;
+}
+
+.inputGroup {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+

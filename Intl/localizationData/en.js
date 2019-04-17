@@ -1,7 +1,7 @@
 export default {
   locale: 'en',
   messages: {
-    siteTitle: 'MERN Starter Blog',
+    siteTitle: 'Kanban App',
     addPost: 'Add Post',
     switchLanguage: 'Switch Language',
     twitterMessage: 'We are on Twitter',

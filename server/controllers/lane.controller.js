@@ -5,33 +5,31 @@ export function getSomething(req, res) {
   return res.status(200).end();
 }
 
-
 export function addLane(req, res) {
-	if (!req.body.name) {
-		return res.status(403).end();
-	}
+  if (!req.body.name) {
+    res.status(403).end();
+  }
 
-	const newLane = new Lane(req.body);
+  const newLane = new Lane(req.body);
 
-	newLane.notes = [];
-	newLane.id = uuid();
+  newLane.notes = [];
 
-	newLane.save((err, saved) => {
-		if(err) {
-			res.status(500).send(err);
-		}
-		res.json(saved);
-	});
+  newLane.id = uuid();
+  newLane.save((err, saved) => {
+    if (err) {
+      res.status(500).send(err);
+    }
+    res.json(saved);
+  });
 }
 
-
 export function getLanes(req, res) {
-	Lane.find().exec((err, lanes) => {
-		if (err) {
-			res.status(500).send(err);
-		}
-		res.json({ lanes });
-	});
+  Lane.find().exec((err, lanes) => {
+    if (err) {
+      res.status(500).send(err);
+    }
+    res.json({ lanes });
+  });
 }
 
 
@@ -59,5 +57,3 @@ export function deleteLane(req, res) {
 		});
 	});
 }
-
-

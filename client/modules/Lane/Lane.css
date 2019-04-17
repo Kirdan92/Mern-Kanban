@@ -1,1 +1,82 @@
 /* Lane styles */
+
+
+.LanesContainer {
+	background: #667db6;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to left, #667db6, #0082c8, #0082c8, #667db6);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to left, #667db6, #0082c8, #0082c8, #667db6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	max-width: 1200px;
+	min-height: 400px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	padding: 20px;
+	border-radius: 6px;
+	box-shadow: 7px 7px 5px 0px rgba(0,0,0,0.38);
+}
+
+.LaneHeader {
+	text-transform: uppercase;
+	color: #0082c8;
+	margin-bottom: 10px;
+	font-size: 1.3rem;
+}
+
+.LaneName {
+	color: #0082c8;
+	margin-bottom: 10px;
+}
+
+.Lane {
+	margin: 10px;
+	padding: 20px;
+	background-color: #fff;
+	border: 1px solid rgba(0,0,0,.125);
+	min-width: 300px;
+	min-height: 350px;
+	position: relative;
+}
+
+.lanes {
+  display: flex;
+  justify-content: space-evenly;
+  max-width: 100%;
+  flex-wrap: wrap;
+}
+
+
+.btnAddNote {
+	font-size: 1rem;
+	align-self: center;
+	padding: 4px;
+	margin-bottom: 10px;
+  	background-color: #6DD5FA;
+  	border: 2px solid #2980B9;
+  	color: #00233B;
+}
+
+.btnAddNote:hover {
+	background-color: #00233B;
+  	border: 2px solid #6DD5FA;
+  	color: #6DD5FA;
+  	cursor: pointer;
+}
+
+.LaneDelete {
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+.LaneDelete button {
+	border: 2px solid #3D0200;
+	background-color: #BA0600;
+	color: #FFF;
+	padding: 4px;
+	font-weight: 700;
+}
+.LaneDelete button:hover {
+	background-color: #FFF;
+	color: #BA0600;
+	cursor: pointer;
+}

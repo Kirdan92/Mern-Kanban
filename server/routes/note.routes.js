@@ -8,7 +8,7 @@ router.route('/notes').post(NoteController.addNote);
 
 
 //Pobierz wszystkie karty
-router.route('/notes').get(NoteController.getNotes);
+//router.route('/notes').get(NoteController.getNotes);
 
 
 

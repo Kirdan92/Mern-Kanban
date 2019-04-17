@@ -1,1 +1,20 @@
 /* Kanban styles */
+.Kanban {
+	text-align: center;
+}
+.btnAddLane {
+	font-size: 1.1rem;
+	align-self: center;
+	padding: 6px;
+	margin-bottom: 10px;
+  	background-color: #12E66A;
+  	border: 2px solid #0A803B;
+  	color: #05401E;
+}
+
+.btnAddLane:hover {
+	background-color: #05401E;
+  	border: 2px solid #12E66A;
+  	color: #12E66A;
+  	cursor: pointer;
+}

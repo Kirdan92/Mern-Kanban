@@ -1,1 +1,36 @@
-/* Note styles */
+
+.Note {
+  max-width: 260px;
+  padding: 10px;
+  min-height: 30px;
+  background-color: #C3EAF7;
+  position: relative;
+  -webkit-box-shadow: 2px 2px 5px 0px rgba(56,68,71,1);
+  -moz-box-shadow: 2px 2px 5px 0px rgba(56,68,71,1);
+  box-shadow: 2px 2px 5px 0px rgba(56,68,71,1);
+}
+.notes li {
+  list-style-type: none;
+  border: none;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.notes li button {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background-color: transparent;
+  font-weight: 400;
+  font-size: 1.1rem;
+  color: #BA0600;
+}
+.notes li button:hover {
+  cursor: pointer;
+  color: #3D0200;
+}
+.notes input {
+  max-width: 100%;
+}
