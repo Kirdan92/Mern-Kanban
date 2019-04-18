@@ -53,7 +53,7 @@ export default function lanes(state = initialState, action) {
     case MOVE_BETWEEN_LANES: {
       const targetLane = { ...state[action.targetLaneId] };
       const sourceLane = { ...state[action.sourceLaneId] };
-      const laneHasNotes = targetLane.notes.find(notId => noteId !== action.noteId);
+      const laneHasNotes = targetLane.notes.find(noteId => noteId !== action.noteId);
 
       if (!laneHasNotes) {
         targetLane.notes = [...targetLane.notes, action.noteId];
